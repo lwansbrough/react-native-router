@@ -110,8 +110,11 @@ The **`this.props.toRoute()`** callback prop takes one parameter (a JavaScript o
 - `name`: The name of your route, which will be shown as the title of the navigation bar unless it is changed.
 - `component` (required): The React class corresponding to the view you want to render.
 - `leftCorner`: Specify a component to render on the left side of the navigation bar (like the "Add people"-button on the first page of the Twitter app)
+- `renderLeftCorner` Similar to `leftCorner` except that here you specify a function which returns a rendered component.
 - `rightCorner`: Specify a component to render on the right side of the navigation bar
+- `renderRightCorner` Similar to `rightCorner` except that here you specify a function which returns a rendered component.
 - `titleComponent`: Specify a component to replace the title. This could for example be your logo (as in the first page of the Instagram app)
+- `renderTitle` Similar to `titleComponent` except that here you specify a function which returns a rendered component.
 - `headerStyle`: change the style of your header for the new route. You could for example specify a new backgroundColor and the router will automatically make a nice transition from one color to the other!
 - `data`: Send custom data to your route.
 
