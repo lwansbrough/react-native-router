@@ -2,12 +2,14 @@
 
 var React = require('react-native');
 
+var tinycolor = require('tinycolor2');
+
 var NavBarContainer = require('./components/NavBarContainer');
 
 var {
+  StatusBarIOS,
   StyleSheet,
   Navigator,
-  StatusBarIOS,
   View,
 } = React;
 
@@ -122,12 +124,17 @@ var Router = React.createClass({
   },
 
   render: function() {
-
-    // Status bar color
-    if (this.props.statusBarColor === "black") {
-      StatusBarIOS.setStyle(0);
-    } else {
-      StatusBarIOS.setStyle(1);
+    
+    var headerColor = this.props.headerStyle.backgroundColor;
+    if (this.state.route && this.state.route.headerStyle && this.state.route.headerStyle.backgroundColor) {
+      headerColor = this.state.route.headerStyle.backgroundColor;
+    }
+    
+    if (tinycolor(headerColor).isLight()) {
+      StatusBarIOS.setStyle(StatusBarIOS.Style.default, true);
+    }
+    else {
+      StatusBarIOS.setStyle(StatusBarIOS.Style.lightContent, true);
     }
 
     var navigationBar;

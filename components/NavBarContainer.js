@@ -2,6 +2,8 @@
 
 var React = require('react-native');
 
+var tinycolor = require('tinycolor2');
+
 var NavBarContent = require('./NavBarContent');
 
 var {
