@@ -106,16 +106,17 @@ var NavBarContent = React.createClass({
     /**
      * Set title message
      */
-    var titleContent;
+    var titleContent,
+        titleStyles = [styles.navbarText, this.props.titleStyle, this.props.route.titleStyle];
 
     if (this.props.route.titleComponent) {
       var TitleComponent = this.props.route.titleComponent;
-      titleContent = <TitleComponent style={[styles.navbarText, this.props.titleStyle]} />;
+      titleContent = <TitleComponent style={titleStyles} />;
     } else if (this.props.route.renderTitle) {
-      titleContent = this.props.route.renderTitle(this.props.route, [styles.navbarText, this.props.titleStyle]);
+      titleContent = this.props.route.renderTitle(this.props.route, titleStyles);
     } else {
       titleContent = (
-        <Text style={[styles.navbarText, this.props.titleStyle]}>
+        <Text style={titleStyles}>
           {this.props.route.name}
         </Text>
       );
