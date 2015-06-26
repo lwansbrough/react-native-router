@@ -77,11 +77,13 @@ var NavBarContent = React.createClass({
         customAction: this.customAction
       });
     } else if (this.props.route.index > 0) {
+      var renderBackButton = this.props.route.renderBackButton || this.props.renderBackButton;
+      var backButtonComponent = this.props.route.backButtonComponent || this.props.backButtonComponent;
       leftCornerContent = (
         <NavButton
           onPress={this.goBack}
-          backButtonComponent={this.props.backButtonComponent}
-          renderBackButton={this.props.renderBackButton}
+          backButtonComponent={backButtonComponent}
+          renderBackButton={renderBackButton}
         />
       );
     }
