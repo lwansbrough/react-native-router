@@ -22,6 +22,8 @@ var NavButton = React.createClass({
     if (this.props.backButtonComponent) {
       var BackButton = this.props.backButtonComponent;
       backButton = <View><BackButton /></View>
+    } else if (this.props.renderBackButton) {
+      backButton = this.props.renderBackButton(styles.navbarText); 
     } else {
       backButton = <Text style={styles.navbarText}>Back</Text>
     }
